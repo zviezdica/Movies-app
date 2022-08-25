@@ -1,0 +1,25 @@
+.navbar > div {
+  padding-top: 0px;
+}
+
+@media (min-width: 1200px) {
+  .navbar > div {
+    padding: 30px 52px 15px;
+  }
+}
+
+.nav-item {
+  background-color: red;
+  padding: 8px 15px;
+}
+
+.navigation-logo img {
+  width: 140px;
+}
+
+@media (min-width: 1200px) {
+  .navigation-logo img {
+    width: 220px;
+  }
+}
+/*# sourceMappingURL=navigation.css.map */

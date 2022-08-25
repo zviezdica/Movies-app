@@ -1,0 +1,6 @@
+//media queries
+@mixin laptop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}

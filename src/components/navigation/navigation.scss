@@ -1,0 +1,36 @@
+@mixin laptop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+.navbar {
+  background-color: $black-transparent;
+  & > div {
+    padding-top: 0px;
+    @include laptop {
+      padding: 30px 52px 15px;
+    }
+  }
+}
+
+.nav-item {
+  padding: 8px 15px;
+  .dropdown {
+    &-menu {
+      background-color: $dark-grey;
+      border: none;
+    }
+  }
+}
+
+.navigation {
+  &-logo {
+    img {
+      width: 140px;
+      @include laptop {
+        width: 220px;
+      }
+    }
+  }
+}
