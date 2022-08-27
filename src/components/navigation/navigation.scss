@@ -1,17 +1,22 @@
+$black: #000000;
+$black-transparent: rgba(0, 0, 0, 0.35);
+$grey: #999c9f;
+$dark-grey: #1c252f;
+
 @mixin laptop {
   @media (min-width: 1200px) {
     @content;
   }
 }
 
+@mixin tablet {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+
 .navbar {
   background-color: $black-transparent;
-  & > div {
-    padding-top: 0px;
-    @include laptop {
-      padding: 30px 52px 15px;
-    }
-  }
 }
 
 .nav-item {
@@ -33,4 +38,21 @@
       }
     }
   }
+}
+
+.search-results {
+  overflow-y: scroll;
+  max-height: 70vh;
+  top: 40px;
+  @include tablet {
+    top: 50px;
+  }
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
 }

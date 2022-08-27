@@ -3,16 +3,55 @@
 @import "./styles/custom.scss";
 
 @import "./components/navigation/navigation.scss";
+@import "./components/home-page/home-page.scss";
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 
-//reduce font sizes on small screens
-@media (max-width: 576px) {
-  html {
-    font-size: 13px;
+//font-family
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap");
+* {
+  font-family: "Lato", sans-serif;
+}
+
+@mixin tablet {
+  @media (min-width: 576px) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin big-screen {
+  @media (min-width: 1400px) {
+    @content;
   }
 }
 
 body {
   background-color: $black;
+  overflow-x: hidden;
+}
+
+main {
+  padding-top: 40px;
+}
+
+@media (max-width: 576px) {
+  html {
+    font-size: 13px;
+  }
+  main {
+    padding-top: 10px;
+  }
+}
+
+.section {
+  margin: 30px 0px;
+  @include tablet {
+    margin: 60px 0px;
+  }
 }

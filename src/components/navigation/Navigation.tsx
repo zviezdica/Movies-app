@@ -1,22 +1,12 @@
-import React from "react";
-import SearchIcon from "@mui/icons-material/Search";
-import {
-  Container,
-  Form,
-  InputGroup,
-  Navbar,
-  NavbarBrand,
-  NavDropdown,
-} from "react-bootstrap";
+import React, { useState } from "react";
+import { Container, Navbar, NavbarBrand, NavDropdown } from "react-bootstrap";
+import SearchInput from "./SearchInput";
 
 const Navigation = () => {
   return (
     <Navbar sticky="top">
-      <Container
-        fluid
-        className="flex-wrap flex-sm-nowrap justify-content-center justify-content-sm-between"
-      >
-        <div className="navigation-logo mb-2 mb-sm-0">
+      <Container className="flex-wrap flex-sm-nowrap justify-content-center justify-content-sm-between pt-xl-4 pb-xl-3">
+        <div className="navigation-logo mb-3 mb-sm-0">
           <NavbarBrand href="/">
             <picture>
               <source srcSet="https://www.justwatch.com/appassets/img/logo/JustWatch-logo-large.webp" />
@@ -27,7 +17,7 @@ const Navigation = () => {
             </picture>
           </NavbarBrand>
         </div>
-        <div className="d-flex ">
+        <div className="d-flex w-75 justify-content-center justify-content-sm-end">
           <NavDropdown
             title="My favorites"
             id="favoritesDropdown"
@@ -40,16 +30,7 @@ const Navigation = () => {
               Fav 2
             </NavDropdown.Item>
           </NavDropdown>
-          <InputGroup className="rounded">
-            <InputGroup.Text className="border-0 bg-primary">
-              <SearchIcon className="text-secondary" />
-            </InputGroup.Text>
-            <Form.Control
-              placeholder="name, date"
-              aria-label="search by name, date"
-              className="border-0 bg-primary text-secondary shadow-none"
-            ></Form.Control>
-          </InputGroup>
+          <SearchInput />
         </div>
       </Container>
     </Navbar>
