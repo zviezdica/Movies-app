@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Lazy } from "swiper";
@@ -11,8 +11,9 @@ import MovieCard from "./MovieCard";
 const MoviesList = () => {
   return (
     <div>
+      <h2>Newest movies</h2>
       <Swiper
-        spaceBetween={30}
+        spaceBetween={10}
         slidesPerView={"auto"}
         loop={true}
         loopedSlides={10}

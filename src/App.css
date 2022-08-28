@@ -95,6 +95,18 @@
   letter-spacing: 4px;
 }
 
+.movie-card svg {
+  top: -10px;
+  color: #babdc0;
+  cursor: pointer;
+  -webkit-transition: color 0.15s;
+  transition: color 0.15s;
+}
+
+.movie-card svg:hover {
+  color: whitesmoke;
+}
+
 /*!
    * Bootstrap  v5.2.0 (https://getbootstrap.com/)
    * Copyright 2011-2022 The Bootstrap Authors

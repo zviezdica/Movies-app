@@ -20,12 +20,10 @@ const SearchInput = () => {
     const targetInput = e.target as HTMLInputElement;
     setSearchValue(targetInput.value);
     if (targetInput.value) {
-      const apiQuery = "search/multi?query=" + targetInput.value;
-      getAPIData(apiQuery).then((results) => setSearchResults(results));
+      const apiQuery = "search/multi?query=" + targetInput.value + "&";
+      getAPIData(apiQuery).then((res) => setSearchResults(res.results));
     } else setSearchResults([]);
   };
-
-  console.log(searchResults);
 
   const showSearchResults = () => {
     if (searchResults.length === 0) return;
