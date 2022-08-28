@@ -1,7 +1,12 @@
 import React from "react";
+import MoviesList from "../components/discovery/MoviesList";
 
 const MovieDiscoveryPage = () => {
-  return <div>MovieDiscoveryPage</div>;
+  return (
+    <>
+      <MoviesList />
+    </>
+  );
 };
 
 export default MovieDiscoveryPage;
