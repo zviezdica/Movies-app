@@ -1,8 +1,9 @@
 .movie-card {
   svg {
-    top: -10px;
+    top: 5px;
+    left: 5px;
+    z-index: 2;
     color: $light-grey;
-    cursor: pointer;
     transition: color 0.15s;
     &:hover {
       color: whitesmoke;

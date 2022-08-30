@@ -96,15 +96,25 @@
 }
 
 .movie-card svg {
-  top: -10px;
+  top: 5px;
+  left: 5px;
+  z-index: 2;
   color: #babdc0;
-  cursor: pointer;
   -webkit-transition: color 0.15s;
   transition: color 0.15s;
 }
 
 .movie-card svg:hover {
   color: whitesmoke;
+}
+
+.logo {
+  width: 80px;
+  height: 40px;
+  background: center no-repeat;
+  background-size: contain;
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
 }
 
 /*!
@@ -12623,5 +12633,9 @@ main {
   .section {
     margin: 60px 0px;
   }
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 /*# sourceMappingURL=App.css.map */

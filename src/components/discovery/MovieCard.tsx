@@ -1,6 +1,5 @@
 import React from "react";
-
-import BookmarkIcon from "@mui/icons-material/Bookmark";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 import { Movie } from "../../pages/MovieDiscoveryPage";
 import { Link } from "react-router-dom";
@@ -19,7 +18,7 @@ const MovieCard: React.FC<{ movie: Movie }> = ({ movie }) => {
           <source data-srcset={imgSrc} />
           <img data-src={imgSrc} alt="movie" className="swiper-lazy rounded" />
         </picture>
-        <BookmarkIcon className="position-absolute start-0 fs-1 cursor-pointer" />
+        <FavoriteIcon className="position-absolute fs-2 cursor-pointer" />
       </div>
       <div className="swiper-lazy-preloader"></div>
     </Link>
