@@ -8,10 +8,25 @@ import "swiper/css";
 import "swiper/css/navigation";
 import MovieCard from "./MovieCard";
 
-const MoviesList = () => {
+import { Movie } from "../../pages/MovieDiscoveryPage";
+
+const MoviesList: React.FC<{ movies: Movie[]; title: string }> = ({
+  movies,
+  title,
+}) => {
+  const displayMovies = () => {
+    return movies.map((movie) => {
+      return (
+        <SwiperSlide key={movie.id} style={{ width: "fit-content" }}>
+          <MovieCard movie={movie} />
+        </SwiperSlide>
+      );
+    });
+  };
+
   return (
     <div>
-      <h2>Newest movies</h2>
+      <h2>{title}</h2>
       <Swiper
         spaceBetween={10}
         slidesPerView={"auto"}
@@ -25,24 +40,7 @@ const MoviesList = () => {
         navigation={true}
         modules={[Navigation, Lazy]}
       >
-        <SwiperSlide style={{ width: "fit-content" }}>
-          <MovieCard></MovieCard>
-        </SwiperSlide>
-        <SwiperSlide style={{ width: "fit-content" }}>
-          <MovieCard></MovieCard>
-        </SwiperSlide>
-        <SwiperSlide style={{ width: "fit-content" }}>
-          <MovieCard></MovieCard>
-        </SwiperSlide>
-        <SwiperSlide style={{ width: "fit-content" }}>
-          <MovieCard></MovieCard>
-        </SwiperSlide>
-        <SwiperSlide style={{ width: "fit-content" }}>
-          <MovieCard></MovieCard>
-        </SwiperSlide>
-        <SwiperSlide style={{ width: "fit-content" }}>
-          <MovieCard></MovieCard>
-        </SwiperSlide>
+        {displayMovies()}
       </Swiper>
     </div>
   );

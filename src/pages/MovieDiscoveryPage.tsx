@@ -6,6 +6,7 @@ import getAPIData from "../helpers/getAPIData";
 
 export interface Movie {
   id: number;
+  title: string;
   img: string;
 }
 
@@ -19,9 +20,13 @@ const MovieDiscoveryPage = () => {
     let upcomingArr: Movie[] = [];
     getAPIData(apiQuery).then((res) => {
       const { results } = res;
-      // console.log(results);
+      console.log(results);
       results.forEach((movie: any) => {
-        upcomingArr.push({ id: movie["id"], img: movie["poster_path"] });
+        upcomingArr.push({
+          id: movie["id"],
+          title: movie["title"],
+          img: movie["poster_path"],
+        });
         setUpcomingMovies(upcomingArr);
       });
     });
@@ -56,10 +61,10 @@ const MovieDiscoveryPage = () => {
     }
   }, [genres]);
 
-  console.log(upcomingMovies);
+  // console.log(upcomingMovies);
   return (
     <>
-      <MoviesList />
+      <MoviesList movies={upcomingMovies} title="Upcoming movies" />
     </>
   );
 };
