@@ -14,10 +14,16 @@ const MovieCard: React.FC<{ movie: Movie }> = ({ movie }) => {
   return (
     <Link to={"/details/" + movie.id}>
       <div className="d-block movie-card position-relative">
-        <picture>
-          <source data-srcset={imgSrc} />
-          <img data-src={imgSrc} alt="movie" className="swiper-lazy rounded" />
-        </picture>
+        {imgSrc && (
+          <picture>
+            <source data-srcset={imgSrc} />
+            <img
+              data-src={imgSrc}
+              alt="movie"
+              className="swiper-lazy rounded"
+            />
+          </picture>
+        )}
         <FavoriteIcon className="position-absolute fs-2 cursor-pointer" />
       </div>
       <div className="swiper-lazy-preloader"></div>

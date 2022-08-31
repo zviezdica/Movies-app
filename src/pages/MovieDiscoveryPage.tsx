@@ -1,4 +1,3 @@
-import { generateKeySync, generatePrimeSync } from "crypto";
 import React, { useEffect, useState } from "react";
 import MoviesList from "../components/discovery/MoviesList";
 
@@ -12,15 +11,15 @@ export interface Movie {
 
 const MovieDiscoveryPage = () => {
   const [upcomingMovies, setUpcomingMovies] = useState<Movie[]>([]);
-  const [genres, setGenres] = useState([]);
-  const [popularMovies, setPopularMovies] = useState({});
+  const [popularMovies, setPopularMovies] = useState<{
+    [key: string]: Movie[];
+  }>({});
 
   const getUpcomingMovies = () => {
     const apiQuery = "movie/upcoming?";
     let upcomingArr: Movie[] = [];
     getAPIData(apiQuery).then((res) => {
       const { results } = res;
-      console.log(results);
       results.forEach((movie: any) => {
         upcomingArr.push({
           id: movie["id"],
@@ -34,37 +33,62 @@ const MovieDiscoveryPage = () => {
 
   const getGenres = () => {
     const apiQuery = "genre/movie/list?";
-    getAPIData(apiQuery).then((res) => setGenres(res.genres));
+    return getAPIData(apiQuery);
   };
 
-  const getPopularMovies = () => {
-    const apiQuery = "movie/popular?";
-    let popularObj = {};
+  const getPopularMovies = (genres: { [key: string]: string }[]) => {
+    const apiQuery = "discover/movie?";
+    let popularObj: { [key: string]: any } = {};
+    let popularMoviesObj: { [key: string]: any } = {};
     genres.forEach((genre) => {
       const { id, name } = genre;
       const aditional = `&with_genres=${id}`;
+
       getAPIData(apiQuery, aditional).then((res) => {
         popularObj = { ...popularObj, [name]: res.results };
-        setPopularMovies(popularObj);
+
+        Object.keys(popularObj).forEach((genre) => {
+          const popularArr: Movie[] = [];
+          popularObj[genre].forEach((movie: { [key: string]: any }) => {
+            popularArr.push({
+              id: movie["id"],
+              title: movie["title"],
+              img: movie["poster_path"],
+            });
+          });
+          popularMoviesObj[genre] = popularArr;
+        });
       });
     });
+    setPopularMovies(popularMoviesObj);
   };
 
   useEffect(() => {
+    const getPopularByGenres = async () => {
+      const res = await getGenres();
+      const genres = res.genres;
+      if (genres.length) {
+        getPopularMovies(genres);
+      }
+    };
     getUpcomingMovies();
-    getGenres();
+    getPopularByGenres();
   }, []);
 
-  useEffect(() => {
-    if (genres.length) {
-      getPopularMovies();
-    }
-  }, [genres]);
+  const showPopularMoviesByGenre = () => {
+    return Object.keys(popularMovies).map((genre) => {
+      return (
+        <MoviesList key={genre} movies={popularMovies[genre]} title={genre} />
+      );
+    });
+  };
 
-  // console.log(upcomingMovies);
   return (
     <>
-      <MoviesList movies={upcomingMovies} title="Upcoming movies" />
+      {upcomingMovies.length > 0 && (
+        <MoviesList movies={upcomingMovies} title="Upcoming movies" />
+      )}
+      {Object.keys(popularMovies).length > 0 && showPopularMoviesByGenre()}
     </>
   );
 };

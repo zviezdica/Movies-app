@@ -3,8 +3,7 @@ const getAPIData = async (apiQuery: string, aditional?: string) => {
   const apiRoot = "https://api.themoviedb.org/3/";
   const apiKey = "api_key=6507f6186210afe2e01d68be1466a2f7";
 
-  const apiUrl = apiRoot + apiQuery + apiKey;
-  console.log(apiUrl);
+  const apiUrl = apiRoot + apiQuery + apiKey + (aditional ? aditional : "");
 
   let apiData = [];
 

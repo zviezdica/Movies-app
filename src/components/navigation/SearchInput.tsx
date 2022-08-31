@@ -6,9 +6,6 @@ import { Form, InputGroup } from "react-bootstrap";
 
 import useClickOutside from "../../helpers/clickOutside";
 
-// const apiQuery = "search/movie?query=john";
-// getAPIData(apiQuery).then((value) => console.log(value));
-
 const SearchInput = () => {
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState([]);

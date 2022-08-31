@@ -24,12 +24,10 @@ const useClickOutside: Props = (ref, setSearchValue, setSearchResults) => {
     }
     console.log(ref);
     document.addEventListener("mousedown", handleClickOutside);
-    console.log("dodajem");
 
     return () => {
       // Unbind the event listener on clean up
       document.removeEventListener("mousedown", handleClickOutside);
-      console.log("mičem");
     };
   }, [ref]);
 };

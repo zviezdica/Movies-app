@@ -23,7 +23,7 @@ const HomePage = () => {
               Otkrijte filmove i serije
             </Button>
             <Button
-              href="/discovery"
+              href="#functionalities"
               variant="outline-secondary"
               className="py-3 px-4 fs-5 d-block d-sm-inline-block"
             >
@@ -44,28 +44,30 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <ImageWithText
-        imgUrl="https://www.justwatch.com/appassets/img/home/recommendations/recommendations@2x.webp"
-        headline1="Lorem ipsum dolor sit"
-        headline2="Lorem ipsum dolor sit"
-        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi,
+      <div id="functionalities">
+        <ImageWithText
+          imgUrl="https://www.justwatch.com/appassets/img/home/recommendations/recommendations@2x.webp"
+          headline1="Lorem ipsum dolor sit"
+          headline2="Lorem ipsum dolor sit"
+          description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi,
             tempore."
-      />
-      <ImageWithText
-        imgUrl="https://www.justwatch.com/appassets/img/home/recommendations/recommendations@2x.webp"
-        headline1="Lorem ipsum dolor sit"
-        headline2="Lorem ipsum dolor sit"
-        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi,
+        />
+        <ImageWithText
+          imgUrl="https://www.justwatch.com/appassets/img/home/recommendations/recommendations@2x.webp"
+          headline1="Lorem ipsum dolor sit"
+          headline2="Lorem ipsum dolor sit"
+          description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi,
             tempore."
-        textFirst={true}
-      />
-      <ImageWithText
-        imgUrl="https://www.justwatch.com/appassets/img/home/recommendations/recommendations@2x.webp"
-        headline1="Lorem ipsum dolor sit"
-        headline2="Lorem ipsum dolor sit"
-        description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi,
+          textFirst={true}
+        />
+        <ImageWithText
+          imgUrl="https://www.justwatch.com/appassets/img/home/recommendations/recommendations@2x.webp"
+          headline1="Lorem ipsum dolor sit"
+          headline2="Lorem ipsum dolor sit"
+          description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi,
             tempore."
-      />
+        />
+      </div>
     </section>
   );
 };

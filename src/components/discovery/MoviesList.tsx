@@ -17,7 +17,10 @@ const MoviesList: React.FC<{ movies: Movie[]; title: string }> = ({
   const displayMovies = () => {
     return movies.map((movie) => {
       return (
-        <SwiperSlide key={movie.id} style={{ width: "fit-content" }}>
+        <SwiperSlide
+          key={movie.id + Math.random()}
+          style={{ width: "fit-content" }}
+        >
           <MovieCard movie={movie} />
         </SwiperSlide>
       );
@@ -30,13 +33,11 @@ const MoviesList: React.FC<{ movies: Movie[]; title: string }> = ({
       <Swiper
         spaceBetween={10}
         slidesPerView={"auto"}
-        loop={true}
-        loopedSlides={10}
         watchSlidesProgress={true}
         preloadImages={false}
         lazy={true}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
         navigation={true}
         modules={[Navigation, Lazy]}
       >

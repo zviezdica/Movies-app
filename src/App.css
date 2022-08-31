@@ -108,6 +108,20 @@
   color: whitesmoke;
 }
 
+.details-part {
+  margin-bottom: 24px;
+}
+
+.details-part h6, .details-part .h6 {
+  text-transform: uppercase;
+  color: #4c5b69;
+  font-weight: 700;
+}
+
+.details-part p {
+  color: #999c9f;
+}
+
 .logo {
   width: 80px;
   height: 40px;
@@ -12610,10 +12624,6 @@ fieldset:disabled .btn {
 body {
   background-color: #000000;
   overflow-x: hidden;
-}
-
-main {
-  padding-top: 40px;
 }
 
 @media (max-width: 576px) {

@@ -1,3 +1,15 @@
+.details-part {
+  margin-bottom: 24px;
+  h6 {
+    text-transform: uppercase;
+    color: $night-grey;
+    font-weight: 700;
+  }
+  p {
+    color: $secondary;
+  }
+}
+
 .logo {
   width: 80px;
   height: 40px;
