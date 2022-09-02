@@ -28,8 +28,8 @@ const MoviesList: React.FC<{ movies: Movie[]; title: string }> = ({
   };
 
   return (
-    <div>
-      <h2>{title}</h2>
+    <div className="section">
+      <h2 className="text-white pb-2">{title}</h2>
       <Swiper
         spaceBetween={10}
         slidesPerView={"auto"}
