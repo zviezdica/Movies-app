@@ -89,28 +89,32 @@ const UpcomingAndPopular: React.FC<{ genres: { [key: string]: string }[] }> = ({
     getAllMovies();
   }, [genres]);
 
-  const showPopularMoviesByGenre = () => {
-    if (allMovies?.popular) {
-      return Object.keys(allMovies.popular).map((genre) => {
-        return (
-          <MoviesList
-            key={genre}
-            movies={allMovies.popular[genre]}
-            title={genre}
-          />
-        );
-      });
-    }
-  };
+  // const showPopularMoviesByGenre = () => {
+  //   if (allMovies?.popular) {
+  //     return Object.keys(allMovies.popular).map((genre) => {
+  //       return (
+  //         <MoviesList
+  //           key={genre}
+  //           movies={allMovies.popular[genre]}
+  //           title={genre}
+  //         />
+  //       );
+  //     });
+  //   }
+  // };
 
   return (
     <>
-      {allMovies?.upcoming != undefined && allMovies?.upcoming.length > 0 && (
-        <MoviesList movies={allMovies.upcoming} title="Upcoming movies" />
+      {/* {allMovies?.upcoming != undefined && allMovies?.upcoming.length > 0 && (
+        <MoviesList
+          movies={allMovies.upcoming}
+          title="Upcoming movies"
+          apiQuery="movie/upcoming?"
+        />
       )}
       {allMovies?.popular != undefined &&
         Object.keys(allMovies.popular).length > 0 &&
-        showPopularMoviesByGenre()}
+        showPopularMoviesByGenre()} */}
     </>
   );
 };
