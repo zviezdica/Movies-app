@@ -25,7 +25,7 @@ const MoviesList: React.FC<MoviesList> = ({ title, id, upcoming }) => {
     threshold: 0,
     triggerOnce: true,
   });
-  console.log(inView);
+  // console.log(inView);
 
   let apiQuery: string, aditional: string;
   if (upcoming) {
@@ -64,7 +64,7 @@ const MoviesList: React.FC<MoviesList> = ({ title, id, upcoming }) => {
         spaceBetween={10}
         slidesPerView={"auto"}
         watchSlidesProgress={true}
-        // preloadImages={false}
+        preloadImages={false}
         // lazy={true}
         navigation={true}
         modules={[Navigation, Lazy]}

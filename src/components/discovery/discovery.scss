@@ -1,9 +1,21 @@
 .filter-window {
-  top: 45px;
-  right: 0;
-  width: 300px;
+  top: 35px;
+  left: 0;
+  transform: translateX(-50%);
+  width: 360px;
   min-height: 200px;
   z-index: 2;
+}
+
+.option {
+  width: 47%;
+  &:hover {
+    color: white !important;
+  }
+  &.active {
+    background-color: $secondary;
+    color: white !important;
+  }
 }
 
 .movie-card {

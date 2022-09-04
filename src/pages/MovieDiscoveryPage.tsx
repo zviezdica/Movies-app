@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-import Filter from "../components/discovery/Filter";
+import Filter from "../components/discovery/filter/Filter";
 import MoviesList from "../components/discovery/MoviesList";
 import getAPIData from "../helpers/getAPIData";
+import { GenresContext } from "../contexts/GenresContext";
+import { GenresState } from "../contexts/GenresContext";
 
 export interface Movie {
   id: number;
@@ -11,7 +13,7 @@ export interface Movie {
 }
 
 const MovieDiscoveryPage = () => {
-  const [genres, setGenres] = useState<{ [key: string]: string }[]>([]);
+  const [genres, setGenres] = useState<GenresState>([]);
   const [filterMode, setFilterMode] = useState(false);
 
   const getGenres = async () => {
@@ -37,9 +39,11 @@ const MovieDiscoveryPage = () => {
 
   return (
     <>
-      <Filter />
-      <MoviesList title="upcoming" upcoming={true} />
-      {genres.length > 0 && showByGenre()}
+      <GenresContext.Provider value={{ genresState: genres }}>
+        <Filter genres={genres} />
+        <MoviesList title="upcoming" upcoming={true} />
+        {genres.length > 0 && showByGenre()}
+      </GenresContext.Provider>
     </>
   );
 };
