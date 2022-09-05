@@ -22,7 +22,6 @@ const useClickOutside: Props = (ref, setSearchValue, setSearchResults) => {
         ref.current.classList.add("hide");
       }
     }
-    console.log(ref);
     document.addEventListener("mousedown", handleClickOutside);
 
     return () => {

@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import { FilterContext } from "../../../contexts/FilterContext";
 import { GenresContext } from "../../../contexts/GenresContext";
 
@@ -9,38 +9,40 @@ const GenreOption: React.FC<{ genre: { id: string; name: string } }> = ({
   const { filterState, setFilterState } = useContext(FilterContext);
 
   const { name, id } = genre;
-  console.log(filterState);
+  const genreRef = useRef<HTMLParagraphElement>(null);
 
-  const handleSelectedGenre = (
-    e: React.MouseEvent<HTMLParagraphElement, MouseEvent>
-  ) => {
-    const selectedGenre = e.target as HTMLElement;
+  const handleSelectedGenre = () => {
     if (!isGenreSelected) {
-      selectedGenre.classList.add("active");
       setIsGenreSelected(true);
-      if (filterState.genres[0].id === "") {
+      if (filterState.genres.length === 0) {
         setFilterState({
           ...filterState,
-          genres: [{ id, name }],
+          genres: [id],
         });
       } else {
         setFilterState({
           ...filterState,
-          genres: [...filterState.genres, { id, name }],
+          genres: [...filterState.genres, id],
         });
       }
     } else {
-      selectedGenre.classList.remove("active");
       setIsGenreSelected(false);
-      const filteredGenres = filterState.genres.filter(
-        (genre) => genre.id != id
-      );
+      const filteredGenres = filterState.genres.filter((genre) => genre != id);
       setFilterState({ ...filterState, genres: filteredGenres });
     }
   };
 
+  useEffect(() => {
+    if (filterState.genres.includes(id)) {
+      genreRef.current?.classList.add("active");
+    } else {
+      genreRef.current?.classList.remove("active");
+    }
+  }, [filterState]);
+
   return (
     <p
+      ref={genreRef}
       key={`select-genre-${id}`}
       className="option text-secondary d-inline-block cursor-pointer rounded p-1 mb-1 me-1"
       onClick={handleSelectedGenre}

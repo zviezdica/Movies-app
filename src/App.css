@@ -102,7 +102,7 @@
           transform: translateX(-50%);
   width: 360px;
   min-height: 200px;
-  z-index: 2;
+  z-index: 3;
 }
 
 .option {

@@ -18,7 +18,7 @@ const MovieCard: React.FC<{ movie: Movie }> = ({ movie }) => {
 
   return (
     <Link to={"/details/" + id}>
-      <div className="d-block movie-card position-relative">
+      <div className="d-inline-block movie-card position-relative">
         {img && (
           <picture>
             <source srcSet={imgSrc} />
