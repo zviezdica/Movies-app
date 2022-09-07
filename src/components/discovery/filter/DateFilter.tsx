@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React, { useState, useRef, useContext } from "react";
 import Form from "react-bootstrap/Form";
 import { FilterContext } from "../../../contexts/FilterContext";
 import useClickOutside from "../../../helpers/clickOutside";

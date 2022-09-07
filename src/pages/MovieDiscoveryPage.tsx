@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext } from "react";
 
 import Filter from "../components/discovery/filter/Filter";
 import MoviesList from "../components/discovery/MoviesList";

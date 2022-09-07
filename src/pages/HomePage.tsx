@@ -1,5 +1,4 @@
-import React from "react";
-import { Button, Container } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import ImageWithText from "../components/home-page/ImageWithText";
 
 const HomePage = () => {

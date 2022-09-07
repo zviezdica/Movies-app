@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Container, Navbar, NavbarBrand, NavDropdown } from "react-bootstrap";
+import { Container, Navbar, NavbarBrand } from "react-bootstrap";
 import Favorites from "./Favorites";
 import SearchInput from "./SearchInput";
 

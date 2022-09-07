@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import getAPIData from "../../helpers/getAPIData";
-import { FilterContext } from "../../contexts/FilterContext";
 import MovieCard from "./MovieCard";
 
 const MoviesGrid: React.FC<{ aditional: string }> = ({ aditional }) => {
