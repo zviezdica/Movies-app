@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect, useContext } from "react";
 import { FilterContext } from "../../../contexts/FilterContext";
-import { GenresContext } from "../../../contexts/GenresContext";
 
 const GenreOption: React.FC<{ genre: { id: string; name: string } }> = ({
   genre,

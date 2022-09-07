@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AACE,WADS,CACT,GAAG,CAAC;EACF,GAAG,EAAE,KAAK;CACX",
-    "sources": [
-        "discovery.scss"
-    ],
-    "names": [],
-    "file": "discovery.css"
-}

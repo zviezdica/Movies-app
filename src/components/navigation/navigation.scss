@@ -1,20 +1,3 @@
-$black: #000000;
-$black-transparent: rgba(0, 0, 0, 0.35);
-$grey: #999c9f;
-$dark-grey: #1c252f;
-
-@mixin laptop {
-  @media (min-width: 1200px) {
-    @content;
-  }
-}
-
-@mixin tablet {
-  @media (min-width: 576px) {
-    @content;
-  }
-}
-
 .navbar {
   background-color: $black-transparent;
 }

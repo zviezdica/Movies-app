@@ -26,12 +26,13 @@ const SearchInput = () => {
     if (searchResults.length === 0) return;
 
     return searchResults.map((searchResult) => {
+      const { id, name, original_title } = searchResult;
       return (
         <a
-          href="/details"
+          href={`/details/${id}`}
           className="d-block link-secondary text-decoration-none py-1"
         >
-          {searchResult["name"] || searchResult["original_title"]}
+          {name || original_title}
         </a>
       );
     });

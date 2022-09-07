@@ -25,7 +25,6 @@ const MoviesList: React.FC<MoviesList> = ({ title, id, upcoming }) => {
     threshold: 0,
     triggerOnce: true,
   });
-  // console.log(inView);
 
   let apiQuery: string, aditional: string;
   if (upcoming) {

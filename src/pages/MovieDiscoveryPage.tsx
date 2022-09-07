@@ -4,7 +4,6 @@ import Filter from "../components/discovery/filter/Filter";
 import MoviesList from "../components/discovery/MoviesList";
 import FilteredMoviesDisplay from "../components/discovery/FilteredMoviesDisplay";
 import getAPIData from "../helpers/getAPIData";
-import { GenresState } from "../contexts/GenresContext";
 import { FilterContext } from "../contexts/FilterContext";
 
 export interface Movie {
@@ -13,8 +12,13 @@ export interface Movie {
   img: string;
 }
 
+type Genre = {
+  id: string;
+  name: string;
+};
+
 const MovieDiscoveryPage = () => {
-  const [genres, setGenres] = useState<GenresState>([]);
+  const [genres, setGenres] = useState<Genre[]>([]);
   const [filterMode, setFilterMode] = useState(false);
   const { filterState, setFilterState } = useContext(FilterContext);
 

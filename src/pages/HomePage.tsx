@@ -20,14 +20,14 @@ const HomePage = () => {
               variant="warning"
               className="py-3 px-4  fw-bold fs-5 d-block d-sm-inline-block me-0 mb-3 mb-sm-0 me-sm-3 "
             >
-              Otkrijte filmove i serije
+              Discover
             </Button>
             <Button
               href="#functionalities"
               variant="outline-secondary"
               className="py-3 px-4 fs-5 d-block d-sm-inline-block"
             >
-              Funkcionalnosti
+              Functionalities
             </Button>
           </div>
         </div>

@@ -15,24 +15,7 @@
   font-family: "Lato", sans-serif;
 }
 
-@mixin tablet {
-  @media (min-width: 576px) {
-    @content;
-  }
-}
-
-@mixin laptop {
-  @media (min-width: 1200px) {
-    @content;
-  }
-}
-
-@mixin big-screen {
-  @media (min-width: 1400px) {
-    @content;
-  }
-}
-
+//general
 body {
   background-color: $black;
   overflow-x: hidden;
@@ -56,4 +39,33 @@ body {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.favorites-true {
+  color: rgb(205, 188, 38);
+}
+
+.favorite {
+  &-true {
+    svg {
+      color: rgb(205, 188, 38);
+    }
+
+    &:hover {
+      svg {
+        color: rgb(227, 208, 41);
+      }
+    }
+  }
+  &-false {
+    svg {
+      color: $light-grey;
+    }
+
+    &:hover {
+      svg {
+        color: whitesmoke;
+      }
+    }
+  }
 }

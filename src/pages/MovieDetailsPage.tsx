@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
+import { FavoritesContext } from "../contexts/FavoritesContext";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
 import getAPIData from "../helpers/getAPIData";
 
 const MovieDetailsPage = () => {
   const [movieDetails, setMovieDetails] = useState<{ [key: string]: any }>({});
+  const { favoritesState, setFavoritesState } = useContext(FavoritesContext);
+  const [isLiked, setIsLiked] = useState(false);
   const { id } = useParams();
   const baseUrlImg = "https://image.tmdb.org/t/p/";
   const baseUrlImgBig = baseUrlImg + "w400/";
@@ -82,21 +85,66 @@ const MovieDetailsPage = () => {
     });
   };
 
+  const toggleFavorites = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const targetEl = e.currentTarget;
+    const currentFavorites = favoritesState.favorites;
+    let newFavorites = [];
+    if (currentFavorites.some((favorite) => favorite.id == id)) {
+      newFavorites = currentFavorites.filter((favorite: any) => {
+        return favorite["id"] !== id;
+      });
+      const filteredFavoritesStr = JSON.stringify(newFavorites);
+      targetEl.classList.remove("favorite-true");
+      targetEl.classList.add("favorite-false");
+      localStorage.setItem("favorites", filteredFavoritesStr);
+      setFavoritesState({ favorites: newFavorites });
+    } else {
+      if (id != undefined) {
+        newFavorites = [...currentFavorites, { id, title }];
+        const newFavoritesStr = JSON.stringify(newFavorites);
+        targetEl.classList.remove("favorite-false");
+        targetEl.classList.add("favorite-true");
+        localStorage.setItem("favorites", newFavoritesStr);
+        setFavoritesState({ favorites: newFavorites });
+      }
+    }
+  };
+
+  useEffect(() => {
+    const currentFavorites = favoritesState.favorites;
+    if (currentFavorites.some((favorite) => favorite.id == id)) {
+      setIsLiked(true);
+    } else {
+      setIsLiked(false);
+    }
+  }, [favoritesState]);
+
   return (
-    <div className="d-flex">
-      <div className="me-5">
+    <div className="d-flex flex-wrap flex-md-nowrap">
+      <div className="me-5 mb-5 mb-md-0">
         <picture>
           <source srcSet={imgSrc} />
-          <img src={imgSrc} alt="movie" className="swiper-lazy rounded-top" />
+          <img src={imgSrc} alt="movie" className=" swiper-lazy rounded-top" />
         </picture>
+
         <div className="d-flex justify-content-center align-items-center p-2 bg-primary rounded-bottom">
           <div className="d-flex flex-column justify-content-center align-items-center cursor-pointer">
-            <FavoriteIcon className="fs-5 text-white " />
-            <p className="text-white fs-7 mb-0">Add to favorites</p>
+            <div
+              className={
+                "details-fav-icon " +
+                (isLiked ? "favorite-true" : "favorite-false")
+              }
+              onClick={toggleFavorites}
+            >
+              <FavoriteIcon className="fs-5  " />
+            </div>
+            <p className="text-white fs-7 mb-0">
+              {isLiked ? "Remove from favorites" : "Add to favorites"}
+            </p>
           </div>
         </div>
       </div>
-      <div className="flex-grow-1">
+      <div className="flex-grow-1  ">
         <div className="details-part">
           <h3 className="text-white fw-bold">
             {title} <span className="fs-5 text-secondary">({year})</span>

@@ -123,17 +123,17 @@
   height: 300px;
 }
 
-.movie-card svg {
+.movie-card .fav-icon {
+  width: 40px;
+  height: 40px;
   top: 5px;
   left: 5px;
   z-index: 2;
-  color: #babdc0;
-  -webkit-transition: color 0.15s;
-  transition: color 0.15s;
 }
 
-.movie-card svg:hover {
-  color: whitesmoke;
+.movie-card .fav-icon svg {
+  -webkit-transition: color 0.15s;
+  transition: color 0.15s;
 }
 
 .details-part {
@@ -157,6 +157,11 @@
   background-size: contain;
   -webkit-filter: invert(100%);
   filter: invert(100%);
+}
+
+.details-fav-icon svg {
+  -webkit-transition: color 0.15s;
+  transition: color 0.15s;
 }
 
 /*!
@@ -12675,5 +12680,25 @@ body {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.favorites-true {
+  color: #cdbc26;
+}
+
+.favorite-true svg {
+  color: #cdbc26;
+}
+
+.favorite-true:hover svg {
+  color: #e3d029;
+}
+
+.favorite-false svg {
+  color: #babdc0;
+}
+
+.favorite-false:hover svg {
+  color: whitesmoke;
 }
 /*# sourceMappingURL=App.css.map */

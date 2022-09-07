@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import getAPIData from "../../helpers/getAPIData";
 import { FilterContext } from "../../contexts/FilterContext";
 import MoviesGrid from "./MoviesGrid";
@@ -55,19 +55,12 @@ const FilteredMoviesDisplay = () => {
   }, [filterState]);
 
   useEffect(() => {
-    changeAditional();
-  }, []);
-
-  useEffect(() => {
-    getMoviesPages();
+    if (aditionalInfo) {
+      getMoviesPages();
+    }
   }, [aditionalInfo]);
 
   useEffect(() => {
-    getMoviesPages();
-  }, []);
-
-  useEffect(() => {
-    // if (pages === 0) return;
     const gridsArr = [];
     if (pages > 0) {
       gridsArr.push(
@@ -80,7 +73,7 @@ const FilteredMoviesDisplay = () => {
       );
     }
     setMoviesGrids(gridsArr);
-  }, [aditionalInfo]);
+  }, [pages]);
 
   return (
     <div ref={filteredMoviesEl}>

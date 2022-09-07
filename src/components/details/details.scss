@@ -18,3 +18,9 @@
   -webkit-filter: invert(100%);
   filter: invert(100%);
 }
+
+.details-fav-icon {
+  svg {
+    transition: color 0.15s;
+  }
+}

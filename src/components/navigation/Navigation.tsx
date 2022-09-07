@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Container, Navbar, NavbarBrand, NavDropdown } from "react-bootstrap";
+import Favorites from "./Favorites";
 import SearchInput from "./SearchInput";
 
 const Navigation = () => {
@@ -18,18 +19,7 @@ const Navigation = () => {
           </NavbarBrand>
         </div>
         <div className="d-flex w-75 justify-content-center justify-content-sm-end">
-          <NavDropdown
-            title="My favorites"
-            id="favoritesDropdown"
-            className="rounded border-0 bg-primary text-secondary me-3 me-xl-4"
-          >
-            <NavDropdown.Item href="/" className="text-secondary">
-              Fav 1
-            </NavDropdown.Item>
-            <NavDropdown.Item href="/" className="text-secondary">
-              Fav 2
-            </NavDropdown.Item>
-          </NavDropdown>
+          <Favorites />
           <SearchInput />
         </div>
       </Container>
